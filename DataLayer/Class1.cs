@@ -86,8 +86,6 @@ namespace DataLayer
                     DataTable dt = new DataTable();
 
                     da.Fill(dt);
-
-
                 }
             }
         }

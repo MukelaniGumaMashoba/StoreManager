@@ -17,7 +17,8 @@ namespace PresentationLayer
         public Form1()
         {
             InitializeComponent();
-        
+            //BusinessLayerClass displaying = new BusinessLayerClass();
+            //displaying.display();
        
         }
 
@@ -41,12 +42,14 @@ namespace PresentationLayer
             textBox_Stock.Text = stock.ToString();
 
             insertData.Inserting(name,quantity,price,stock);
+            //insertData.display();
 
 
 
             MessageBox.Show("Ihambile");
 
-            insertData.display();
+            this.productStoreTableAdapter.Fill(this.productsDataDataSet.ProductStore);
+            //insertData.display();
             
         }
 
@@ -65,6 +68,7 @@ namespace PresentationLayer
             updateData.updateValues(name, quantity, price, stock);
 
             MessageBox.Show("Updated");
+            this.productStoreTableAdapter.Fill(this.productsDataDataSet.ProductStore);
         }
 
         private void button_Delete_Click(object sender, EventArgs e)
