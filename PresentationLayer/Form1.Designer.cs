@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,14 +45,23 @@
             this.button_Delete = new System.Windows.Forms.Button();
             this.button_Clear = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productsDataDataSet = new PresentationLayer.ProductsDataDataSet();
+            this.productStoreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productStoreTableAdapter = new PresentationLayer.ProductsDataDataSetTableAdapters.ProductStoreTableAdapter();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productStoreBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(169, 126);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -126,7 +136,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
-            this.label5.Location = new System.Drawing.Point(188, 37);
+            this.label5.Location = new System.Drawing.Point(250, 42);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(561, 64);
             this.label5.TabIndex = 9;
@@ -135,7 +145,7 @@
             // 
             // button_Insert
             // 
-            this.button_Insert.Location = new System.Drawing.Point(599, 147);
+            this.button_Insert.Location = new System.Drawing.Point(682, 151);
             this.button_Insert.Name = "button_Insert";
             this.button_Insert.Size = new System.Drawing.Size(131, 45);
             this.button_Insert.TabIndex = 10;
@@ -146,7 +156,7 @@
             // button_Update
             // 
             this.button_Update.BackColor = System.Drawing.Color.SkyBlue;
-            this.button_Update.Location = new System.Drawing.Point(599, 204);
+            this.button_Update.Location = new System.Drawing.Point(682, 208);
             this.button_Update.Name = "button_Update";
             this.button_Update.Size = new System.Drawing.Size(131, 45);
             this.button_Update.TabIndex = 11;
@@ -157,7 +167,7 @@
             // button_Delete
             // 
             this.button_Delete.BackColor = System.Drawing.Color.Red;
-            this.button_Delete.Location = new System.Drawing.Point(599, 255);
+            this.button_Delete.Location = new System.Drawing.Point(682, 259);
             this.button_Delete.Name = "button_Delete";
             this.button_Delete.Size = new System.Drawing.Size(131, 45);
             this.button_Delete.TabIndex = 12;
@@ -167,7 +177,7 @@
             // 
             // button_Clear
             // 
-            this.button_Clear.Location = new System.Drawing.Point(599, 306);
+            this.button_Clear.Location = new System.Drawing.Point(682, 310);
             this.button_Clear.Name = "button_Clear";
             this.button_Clear.Size = new System.Drawing.Size(131, 45);
             this.button_Clear.TabIndex = 13;
@@ -177,20 +187,73 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 382);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productNameDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.stockValueDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.productStoreBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 373);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(736, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(934, 164);
             this.dataGridView1.TabIndex = 14;
+            // 
+            // productsDataDataSet
+            // 
+            this.productsDataDataSet.DataSetName = "ProductsDataDataSet";
+            this.productsDataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productStoreBindingSource
+            // 
+            this.productStoreBindingSource.DataMember = "ProductStore";
+            this.productStoreBindingSource.DataSource = this.productsDataDataSet;
+            // 
+            // productStoreTableAdapter
+            // 
+            this.productStoreTableAdapter.ClearBeforeFill = true;
+            // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Product_Name";
+            this.productNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // stockValueDataGridViewTextBoxColumn
+            // 
+            this.stockValueDataGridViewTextBoxColumn.DataPropertyName = "Stock_Value";
+            this.stockValueDataGridViewTextBoxColumn.HeaderText = "Stock_Value";
+            this.stockValueDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.stockValueDataGridViewTextBoxColumn.Name = "stockValueDataGridViewTextBoxColumn";
+            this.stockValueDataGridViewTextBoxColumn.Width = 130;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(761, 549);
+            this.ClientSize = new System.Drawing.Size(957, 549);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button_Clear);
             this.Controls.Add(this.button_Delete);
@@ -208,8 +271,11 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productsDataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productStoreBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +298,13 @@
         private System.Windows.Forms.Button button_Delete;
         private System.Windows.Forms.Button button_Clear;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private ProductsDataDataSet productsDataDataSet;
+        private System.Windows.Forms.BindingSource productStoreBindingSource;
+        private ProductsDataDataSetTableAdapters.ProductStoreTableAdapter productStoreTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockValueDataGridViewTextBoxColumn;
     }
 }
 
